@@ -5,14 +5,14 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
+#alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
+alias p="cd ~/Projects"
 alias g="git"
 alias h="history"
 alias j="jobs"
@@ -57,8 +57,8 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 
 # Google Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+#alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+#alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -138,13 +138,13 @@ alias badge="tput bel"
 # find . -name .gitattributes | map dirname
 alias map="xargs -n1"
 
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
-done
+## One of @janmoesen’s ProTip™s
+#for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+#	alias "$method"="lwp-request -m '$method'"
+#done
 
-# Make Grunt print stack traces by default
-command -v grunt > /dev/null && alias grunt="grunt --stack"
+## Make Grunt print stack traces by default
+#command -v grunt > /dev/null && alias grunt="grunt --stack"
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
@@ -152,7 +152,7 @@ alias pumpitup="osascript -e 'set volume output volume 100'"
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+#alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"

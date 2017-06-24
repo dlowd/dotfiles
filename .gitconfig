@@ -1,4 +1,8 @@
 [alias]
+	unstage = reset HEAD --
+[user]
+	name = Daniel Lowd
+	email = lowd@cs.uoregon.edu
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
