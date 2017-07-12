@@ -56,6 +56,7 @@ set ruler               " Show the cursor position
 set shortmess=atI       " Don’t show the intro message when starting Vim
 set showmode            " Show the current mode
 set title               " Show the filename in the window titlebar
+set titleold=           " Avoid "Thanks for flying vim" message
 set showcmd             " Show the (partial) command as it’s being typed
 " Use relative line numbers
 "if exists("&relativenumber")
@@ -247,3 +248,4 @@ set viminfo='20,\"50
 
 " for code editing
 set tags=tags;/
+
