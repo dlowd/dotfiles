@@ -22,8 +22,8 @@ set ttyfast                     " Optimize for fast terminal connections
 "set gdefault                   " Add the g flag to search/replace by default
 set encoding=utf-8 nobomb       " Use UTF-8 without BOM
 let mapleader=","               " Change mapleader
-set binary                      " Don’t add empty newlines at the end of files
-set noeol
+"set binary                      " Don’t add empty newlines at the end of files
+"set noeol
 set backupdir=~/.vim/backups    " Centralize backups, swapfiles and undo history
 set directory=~/.vim/swaps
 if exists("&undodir")

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# First, make sure xcode CLT is installed.
+xcode-select --install
+
 # Install command-line tools using Homebrew.
 
 # Make sure we’re using the latest Homebrew.
