@@ -1,15 +1,53 @@
 " vim:set ts=4 sw=4:
 " Daniel's Personal Vim Settings
 
-" Enable Vundle plugin manager
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-Bundle 'gmarik/Vundle.vim'
+"" Enable Vundle plugin manager
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#rc()
+"Bundle 'gmarik/Vundle.vim'
+"Bundle 'syntastic'
+
+" Initialize plugin system
+call plug#begin('~/.vim/plugged')
+
+" Vimtex
+Plug 'lervag/vimtex'
+Plug 'chriskempson/base16-vim'
+
+" Error checking with Syntastic
+"Plug 'vim-syntastic/syntastic'
+
+"   Plug 'junegunn/vim-easy-align'
+"   Plug 'SirVer/ultisnips' 
+"   Plug 'honza/vim-snippets'
+"   Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"
+call plug#end()
+
+" Syntastic
+let g:syntastic_ocaml_checkers = ['merlin']
+
+" Recommended Syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+
 
 " Use the Solarized Dark theme
-set background=dark
+"set background=dark
 "colorscheme solarized
 "let g:solarized_termtrans=1
+
+colorscheme base16-default-dark
 
 " Make Vim more useful
 set nocompatible
@@ -24,11 +62,13 @@ set encoding=utf-8 nobomb       " Use UTF-8 without BOM
 let mapleader=","               " Change mapleader
 set binary                      " Don’t add empty newlines at the end of files
 set noeol
-set backupdir=~/.vim/backups    " Centralize backups, swapfiles and undo history
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
+
+set undofile                " Save undos after file closes
+set undodir=$HOME/Dropbox/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+set backupdir=$HOME/Dropbox/.vim/backups    " Centralize backups, swapfiles and undo history
+set directory=$HOME/Dropbox/.vim/swaps
 
 " Don’t create backups when editing files in certain directories
 set backupskip=/tmp/*,/private/tmp/*
@@ -189,23 +229,6 @@ nmap  <expr> ,b  TYShowBreak()
 nmap  <expr> ,bb  TYToggleBreakMove()
 
 
-" Error checking with Syntastic
-Bundle 'scrooloose/syntastic'
-let g:syntastic_ocaml_checkers = ['merlin']
-
-" Recommended Syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
 au BufEnter *.ml setf ocaml
 au BufEnter *.mli setf ocaml
 au FileType ocaml call FT_ocaml()
@@ -247,3 +270,11 @@ set viminfo='20,\"50
 
 " for code editing
 set tags=tags;/
+
+" Vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='skim'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
