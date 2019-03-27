@@ -96,6 +96,7 @@ set ruler               " Show the cursor position
 set shortmess=atI       " Don’t show the intro message when starting Vim
 set showmode            " Show the current mode
 set title               " Show the filename in the window titlebar
+set titleold=           " Avoid "Thanks for flying vim" message
 set showcmd             " Show the (partial) command as it’s being typed
 " Use relative line numbers
 "if exists("&relativenumber")
@@ -277,4 +278,3 @@ let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
-
