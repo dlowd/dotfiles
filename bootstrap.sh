@@ -13,6 +13,10 @@ function doIt() {
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
+
+  # Install vimtex plugin
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
